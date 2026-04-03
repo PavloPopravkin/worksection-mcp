@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worksection MCP Server</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0a0c14;
+      color: #e8eaf0;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      padding: 48px 20px;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .logo {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 16px;
+      margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .tagline { color: #9ca3af; font-size: 15px; margin-bottom: 20px; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(52,211,153,.1); color: #34d399;
+      border: 1px solid rgba(52,211,153,.2);
+      border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 500;
+    }
+    .dot { width: 7px; height: 7px; background: #34d399; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+    /* About */
+    .about {
+      background: #12151f;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+      font-size: 14px;
+      line-height: 1.75;
+      color: #d1d5db;
+    }
+    .about p + p { margin-top: 12px; }
+    .about strong { color: #e8eaf0; }
+
+    /* Feature grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    .feat {
+      background: #12151f;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .feat-icon { font-size: 20px; margin-bottom: 8px; }
+    .feat-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .feat-desc { font-size: 12px; color: #6b7280; line-height: 1.6; }
+
+    /* Endpoints */
+    .endpoints {
+      background: #12151f;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .1em; color: #6b7280; margin-bottom: 16px;
+    }
+    .ep { margin-bottom: 14px; }
+    .ep:last-child { margin-bottom: 0; }
+    .ep-label { font-size: 11px; color: #6b7280; margin-bottom: 3px; }
+    .ep-url { font-family: monospace; font-size: 13px; color: #93c5fd; word-break: break-all; }
+
+    /* CTA */
+    .cta { text-align: center; }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white; text-decoration: none;
+      padding: 13px 32px; border-radius: 10px;
+      font-weight: 600; font-size: 14px;
+    }
+    .footer { margin-top: 20px; font-size: 12px; color: #374151; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <div class="header">
+      <div class="logo">⚡</div>
+      <h1>Worksection MCP Server</h1>
+      <p class="tagline">Подключи Worksection к Claude и управляй проектами голосом</p>
+      <div class="status"><span class="dot"></span> Server running</div>
+    </div>
+
+    <div class="about">
+      <p>
+        Этот сервер реализует протокол <strong>MCP (Model Context Protocol)</strong> —
+        стандарт Anthropic для подключения внешних инструментов к языковым моделям.
+        Через него <strong>Claude</strong> получает прямой доступ к Worksection API
+        и может читать задачи, создавать их, назначать исполнителей, списывать время
+        и многое другое — без браузера и ручного копирования данных.
+      </p>
+      <p>
+        Аутентификация — через <strong>OAuth 2.0</strong>: каждый пользователь
+        проходит авторизацию в Worksection один раз и получает персональный токен,
+        который вставляется в конфиг Claude Desktop. После этого Claude работает
+        от имени конкретного пользователя с его правами доступа.
+      </p>
+    </div>
+
+    <div class="grid">
+      <div class="feat">
+        <div class="feat-icon">📋</div>
+        <div class="feat-title">Задачи и подзадачи</div>
+        <div class="feat-desc">Создание, редактирование, назначение, закрытие, удаление. Поддержка приоритетов, дедлайнов и тегов.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⏱</div>
+        <div class="feat-title">Трудозатраты</div>
+        <div class="feat-desc">Списание времени и денег, таймеры, отчёты за период. Просроченные задачи — одним вызовом.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">💬</div>
+        <div class="feat-title">Комментарии и файлы</div>
+        <div class="feat-desc">Добавление, редактирование, удаление комментариев. Загрузка файлов прямо из чата с Claude.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🧠</div>
+        <div class="feat-title">Умные инструменты</div>
+        <div class="feat-desc">Сводка по проекту, задачи текущего пользователя, итоги недели — агрегировано за один запрос.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📎</div>
+        <div class="feat-title">MCP Resources</div>
+        <div class="feat-desc">Проекты, пользователи и задачи доступны как контекст — Claude видит их без явного вызова инструмента.</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔁</div>
+        <div class="feat-title">Auto token refresh</div>
+        <div class="feat-desc">OAuth-токены обновляются автоматически при истечении — не нужно переавторизовываться вручную.</div>
+      </div>
+    </div>
+
+    <div class="endpoints">
+      <div class="section-title">Эндпоинты</div>
+      <div class="ep">
+        <div class="ep-label">MCP endpoint (для Claude Desktop / mcp-remote)</div>
+        <div class="ep-url">https://worksection.integrateflowsystems.com/mcp/</div>
+      </div>
+      <div class="ep">
+        <div class="ep-label">OAuth авторизация</div>
+        <div class="ep-url">https://worksection.integrateflowsystems.com/oauth/authorize</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a href="/oauth/authorize" class="btn">Подключить аккаунт Worksection</a>
+      <div class="footer">Powered by FastMCP · Worksection API v2 · OAuth 2.0 · Made by <a href="https://croscor.com" style="color:#6b7280;text-decoration:none;" target="_blank">croscor.com</a></div>
+    </div>
+
+  </div>
+</body>
+</html>

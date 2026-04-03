@@ -1,0 +1,11 @@
+services:
+  worksection-api:
+    build: .
+    container_name: worksection-api
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8899:8000"
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1
