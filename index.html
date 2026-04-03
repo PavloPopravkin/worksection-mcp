@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -111,73 +111,73 @@
     <div class="header">
       <div class="logo">⚡</div>
       <h1>Worksection MCP Server</h1>
-      <p class="tagline">Подключи Worksection к Claude и управляй проектами голосом</p>
+      <p class="tagline">Connect Worksection to Claude and manage projects with voice</p>
       <div class="status"><span class="dot"></span> Server running</div>
     </div>
 
     <div class="about">
       <p>
-        Этот сервер реализует протокол <strong>MCP (Model Context Protocol)</strong> —
-        стандарт Anthropic для подключения внешних инструментов к языковым моделям.
-        Через него <strong>Claude</strong> получает прямой доступ к Worksection API
-        и может читать задачи, создавать их, назначать исполнителей, списывать время
-        и многое другое — без браузера и ручного копирования данных.
+        This server implements <strong>MCP (Model Context Protocol)</strong> —
+        Anthropic's standard for connecting external tools to language models.
+        Through it, <strong>Claude</strong> gets direct access to the Worksection API
+        and can read tasks, create them, assign executors, log time,
+        and much more — without a browser and manual data copying.
       </p>
       <p>
-        Аутентификация — через <strong>OAuth 2.0</strong>: каждый пользователь
-        проходит авторизацию в Worksection один раз и получает персональный токен,
-        который вставляется в конфиг Claude Desktop. После этого Claude работает
-        от имени конкретного пользователя с его правами доступа.
+        Authentication is through <strong>OAuth 2.0</strong>: each user
+        authorizes in Worksection once and receives a personal token,
+        which is inserted into the Claude Desktop config. After that, Claude works
+        on behalf of a specific user with their access rights.
       </p>
     </div>
 
     <div class="grid">
       <div class="feat">
         <div class="feat-icon">📋</div>
-        <div class="feat-title">Задачи и подзадачи</div>
-        <div class="feat-desc">Создание, редактирование, назначение, закрытие, удаление. Поддержка приоритетов, дедлайнов и тегов.</div>
+        <div class="feat-title">Tasks and Subtasks</div>
+        <div class="feat-desc">Create, edit, assign, close, delete. Support for priorities, deadlines, and tags.</div>
       </div>
       <div class="feat">
         <div class="feat-icon">⏱</div>
-        <div class="feat-title">Трудозатраты</div>
-        <div class="feat-desc">Списание времени и денег, таймеры, отчёты за период. Просроченные задачи — одним вызовом.</div>
+        <div class="feat-title">Time Tracking</div>
+        <div class="feat-desc">Log time and costs, timers, period reports. Overdue tasks — with one call.</div>
       </div>
       <div class="feat">
         <div class="feat-icon">💬</div>
-        <div class="feat-title">Комментарии и файлы</div>
-        <div class="feat-desc">Добавление, редактирование, удаление комментариев. Загрузка файлов прямо из чата с Claude.</div>
+        <div class="feat-title">Comments and Files</div>
+        <div class="feat-desc">Add, edit, delete comments. Upload files directly from Claude chat.</div>
       </div>
       <div class="feat">
         <div class="feat-icon">🧠</div>
-        <div class="feat-title">Умные инструменты</div>
-        <div class="feat-desc">Сводка по проекту, задачи текущего пользователя, итоги недели — агрегировано за один запрос.</div>
+        <div class="feat-title">Smart Tools</div>
+        <div class="feat-desc">Project summary, current user tasks, weekly results — aggregated in one request.</div>
       </div>
       <div class="feat">
         <div class="feat-icon">📎</div>
         <div class="feat-title">MCP Resources</div>
-        <div class="feat-desc">Проекты, пользователи и задачи доступны как контекст — Claude видит их без явного вызова инструмента.</div>
+        <div class="feat-desc">Projects, users, and tasks are available as context — Claude sees them without explicit tool calls.</div>
       </div>
       <div class="feat">
         <div class="feat-icon">🔁</div>
-        <div class="feat-title">Auto token refresh</div>
-        <div class="feat-desc">OAuth-токены обновляются автоматически при истечении — не нужно переавторизовываться вручную.</div>
+        <div class="feat-title">Auto Token Refresh</div>
+        <div class="feat-desc">OAuth tokens are automatically refreshed when expired — no need to re-authorize manually.</div>
       </div>
     </div>
 
     <div class="endpoints">
-      <div class="section-title">Эндпоинты</div>
+      <div class="section-title">Endpoints</div>
       <div class="ep">
-        <div class="ep-label">MCP endpoint (для Claude Desktop / mcp-remote)</div>
+        <div class="ep-label">MCP endpoint (for Claude Desktop / mcp-remote)</div>
         <div class="ep-url">https://worksection.integrateflowsystems.com/mcp/</div>
       </div>
       <div class="ep">
-        <div class="ep-label">OAuth авторизация</div>
+        <div class="ep-label">OAuth authorization</div>
         <div class="ep-url">https://worksection.integrateflowsystems.com/oauth/authorize</div>
       </div>
     </div>
 
     <div class="cta">
-      <a href="/oauth/authorize" class="btn">Подключить аккаунт Worksection</a>
+      <a href="/oauth/authorize" class="btn">Connect Worksection Account</a>
       <div class="footer">Powered by FastMCP · Worksection API v2 · OAuth 2.0 · Made by <a href="https://croscor.com" style="color:#6b7280;text-decoration:none;" target="_blank">croscor.com</a></div>
     </div>
 
